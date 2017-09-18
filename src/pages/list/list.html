@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Novidades</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <ion-navbar>
+  <ion-list>
+    <button ion-item (click)="openPageDu(ButecoDuPage)">
+      Buteco do Du
+    </button>
+  </ion-list>
+  <ion-list>
+      <button ion-item (click)="openPageCooka(CookaRestobarPage)">
+        Cooka Restobar
+      </button>
+    </ion-list>
+    </ion-navbar>
+</ion-content>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
