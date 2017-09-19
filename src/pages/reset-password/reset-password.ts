@@ -23,7 +23,7 @@ export class ResetPassword {
 
 
     constructor(public authData: AuthData, public formBuilder: FormBuilder,
-        public nav: NavController, public loadingCtrl: LoadingController,
+       public loadingCtrl: LoadingController,
         public alertCtrl: AlertController) {
 
         this.resetPasswordForm = formBuilder.group({
@@ -49,7 +49,7 @@ export class ResetPassword {
                             text: "Ok",
                             role: 'cancel',
                             handler: () => {
-                                this.nav.pop();
+                                
                             }
                         }
                     ]

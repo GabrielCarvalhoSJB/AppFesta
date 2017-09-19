@@ -31,11 +31,7 @@ export class MyApp {
           messagingSenderId: "739485368266"
       };
       firebase.initializeApp(config);
-      this.pages = [
-        { title: 'Home', component: HomePage },
-        { title: 'Atrações', component: ListPage },
-        { title: 'Bares', component: BaresPage }
-      ];
+     
     
       firebase.auth().onAuthStateChanged((user) => {
 
@@ -47,7 +43,11 @@ export class MyApp {
           } else {
               console.log("login");
               this.rootPage = HomePage;
-
+              this.pages = [
+                { title: 'Home', component: HomePage },
+                { title: 'Atrações', component: ListPage },
+                { title: 'Bares', component: BaresPage }
+              ];
           }
          
       });

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signup</ion-title>
+    <ion-title>Criar Conta</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,28 +18,28 @@
 
     <ion-item>
       <ion-label stacked>Email</ion-label>
-      <ion-input #email formControlName="email" type="email" placeholder="Your email address" 
+      <ion-input #email formControlName="email" type="email" placeholder="Digite o email." 
         [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty">
         </ion-input>
     </ion-item>
     <ion-item class="error-message" 
       *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
-      <p>Please enter a valid email.</p>
+      <p>Entre com um email válido.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input #password formControlName="password" type="password" placeholder="Your password" 
+      <ion-label stacked>Senha</ion-label>
+      <ion-input #password formControlName="password" type="password" placeholder="Digite sua senha" 
         [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty">
         </ion-input>
     </ion-item>
     <ion-item class="error-message" 
       *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
-      <p>Your password needs more than 6 characters.</p>
+      <p>Senha deve conter minimo 6 caracteres.</p>
     </ion-item>
 
     <button ion-button block type="submit">
-      Create an Account
+      Criar Conta.
     </button>
   </form>
 </ion-content>

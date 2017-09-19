@@ -24,10 +24,10 @@ export class Login {
     public loginForm;
     loading: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams
-        , public formBuilder: FormBuilder,
+    constructor(  public formBuilder: FormBuilder,
         public alertCtrl: AlertController, public loadingCtrl: LoadingController,
         public authData: AuthData, public nav: NavController) {
+
 
         this.loginForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -35,6 +35,7 @@ export class Login {
         });
 
     }
+    
 
     loginUser(): void {
         if (!this.loginForm.valid) {
