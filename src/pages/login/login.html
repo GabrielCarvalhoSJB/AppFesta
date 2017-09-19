@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -27,28 +27,28 @@
     </ion-item>
     <ion-item class="error-message" 
       *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
-      <p>Please enter a valid email.</p>
+      <p>Entre com um email válido.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Password</ion-label>
+      <ion-label stacked>Senha</ion-label>
       <ion-input #password formControlName="password" type="password" placeholder="Your password" 
         [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
     </ion-item>
     <ion-item class="error-message" 
       *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
-      <p>Your password needs more than 6 characters.</p>
+      <p>Senha com 6 caracteres.</p>
     </ion-item>
 
     <button ion-button block type="submit">
       Login
     </button>
                      <button ion-button block clear (click)="goToSignup()">
-      Create a new account
+      Criar nova conta.
     </button>
 
     <button ion-button block clear (click)="goToResetPassword()">
-      I forgot my password
+      Esqueci a minha senha.
     </button>
 
    </div>
