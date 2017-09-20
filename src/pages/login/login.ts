@@ -9,6 +9,7 @@ import {HomePage}from'../home/home';
 
 import { ResetPassword } from '../reset-password/reset-password';
 import { Signup } from '../signup/signup';
+import firebase from 'firebase';
 /**
  * Generated class for the Login page.
  *
@@ -21,6 +22,9 @@ import { Signup } from '../signup/signup';
     templateUrl: 'login.html',
 })
 export class Login {
+    toastCtrl: any;
+    navCtrl: any;
+    authService: any;
     public loginForm;
     loading: any;
 
@@ -64,7 +68,16 @@ export class Login {
             this.loading.present();
         }
     }
-
+ signInWithFacebook(){
+     let provider = new firebase.auth.FacebookAuthProvider();
+     firebase.auth().signInWithRedirect(provider).then(() =>{
+         firebase.auth().getRedirectResult().then((result)=>{
+            this.nav.setRoot(HomePage);
+         }).catch(function(error){
+             alert(JSON.stringify(error))
+         });
+     })
+ }
     goToSignup(): void {
         this.nav.push(Signup);
     }

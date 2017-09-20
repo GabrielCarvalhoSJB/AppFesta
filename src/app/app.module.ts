@@ -22,6 +22,7 @@ import { ButecoDuPage } from '../pages/buteco-du/buteco-du';
 import { BaresPage } from '../pages/bares/bares';
 import { ListPage } from '../pages/list/list';
 
+import { Facebook } from '@ionic-native/facebook';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { ListPage } from '../pages/list/list';
       AuthData,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook
+
   ]
 })
 export class AppModule {}

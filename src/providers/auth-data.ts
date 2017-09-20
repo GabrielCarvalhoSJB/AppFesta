@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
-
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 @Injectable()
 export class AuthData {
-  constructor() {}
+  angularFireAuth: any;
+  constructor(private facebook: Facebook) { }
 
   /**
    * [loginUser We'll take an email and password and log the user into the firebase app]
@@ -30,10 +31,7 @@ export class AuthData {
           //    firstName: "anonymous",
            //   id:newUser.uid,
          // });
-        firebase.database().ref('/userProfile').child(newUser.uid).set({
-            firstName: "anonymous",
-             email: email
-      });
+       
     });
   }
 
@@ -51,6 +49,16 @@ export class AuthData {
   /**
    * This function doesn't take any params, it just logs the current user out of the app.
    */
+  signInWithFacebook() {
+    return this.facebook.login(['public_profile', 'email'])
+      .then((res: FacebookLoginResponse) => {
+        //https://developers.facebook.com/docs/graph-api/reference/user
+        //Ao logar com o facebook o profile do usuario é automaticamente atualizado.
+        return this.angularFireAuth.auth.signInWithCredential(firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken));
+      });
+  }
+
+  
   logoutUser(): firebase.Promise<any> {
     return firebase.auth().signOut();
   }
