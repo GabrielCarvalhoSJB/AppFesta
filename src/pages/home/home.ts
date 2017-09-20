@@ -12,6 +12,8 @@ export class HomePage {
     constructor(public navCtrl: NavController, public authData: AuthData) {
 
   }
+
+
   logOut() {
       this.authData.logoutUser().then(() => {
           this.navCtrl.setRoot(Login);

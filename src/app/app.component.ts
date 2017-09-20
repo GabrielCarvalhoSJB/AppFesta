@@ -23,12 +23,12 @@ export class MyApp {
 
       // Initialize Firebase
       var config = {
-          apiKey: "AIzaSyCvvSQqYSSWBBBiaFZBN_5t-Oe5zFzDP9o",
-          authDomain: "auth-7ba82.firebaseapp.com",
-          databaseURL: "https://auth-7ba82.firebaseio.com",
-          projectId: "auth-7ba82",
-          storageBucket: "auth-7ba82.appspot.com",
-          messagingSenderId: "739485368266"
+        apiKey: "AIzaSyAXGa_uByRCLGrI5RzMxDK3vVNIp74xi5Q",
+        authDomain: "quero-festa.firebaseapp.com",
+        databaseURL: "https://quero-festa.firebaseio.com",
+        projectId: "quero-festa",
+        storageBucket: "quero-festa.appspot.com",
+        messagingSenderId: "513439064732"
       };
       firebase.initializeApp(config);
      
