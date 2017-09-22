@@ -72,10 +72,10 @@ export class Login {
      let provider = new firebase.auth.FacebookAuthProvider();
      firebase.auth().signInWithRedirect(provider).then(() =>{
          firebase.auth().getRedirectResult().then((result)=>{
-            this.nav.setRoot(HomePage);
+             alert(JSON.stringify(result));
          }).catch(function(error){
-             alert(JSON.stringify(error))
-         });
+             alert(JSON.stringify)
+         })
      })
  }
     goToSignup(): void {

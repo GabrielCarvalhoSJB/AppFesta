@@ -8,11 +8,21 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-content padding>
+  <ion-content padding >
     <h3>Quero Festa, <br>Em busca de diversão!
     
     </h3>
+    <ion-card *ngIf="userData">
+      <ion-card-header>{{ userData.username }}</ion-card-header>
+      <img [src]="userData.picture" />
+      <ion-card-content>
+        <p>Email: {{ userData.email }}</p>
+        <p>First Name: {{ userData.first_name }}</p>
+      </ion-card-content>
+    </ion-card>
   
+ 
+
     <p>
       If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
     </p>

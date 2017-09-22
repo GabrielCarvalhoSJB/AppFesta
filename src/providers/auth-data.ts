@@ -27,10 +27,10 @@ export class AuthData {
    */
   signupUser(email: string, password: string): firebase.Promise<any> {
       return firebase.auth().createUserWithEmailAndPassword(email, password).then((newUser) => {
-         // firebase.database().ref('/users').child(email).set({
-          //    firstName: "anonymous",
-           //   id:newUser.uid,
-         // });
+         firebase.database().ref('/users').child(email).set({
+             firstName: "anonymous",
+             id:newUser.uid,
+          });
        
     });
   }
@@ -49,16 +49,14 @@ export class AuthData {
   /**
    * This function doesn't take any params, it just logs the current user out of the app.
    */
-  signInWithFacebook() {
-    return this.facebook.login(['public_profile', 'email'])
-      .then((res: FacebookLoginResponse) => {
-        //https://developers.facebook.com/docs/graph-api/reference/user
-        //Ao logar com o facebook o profile do usuario é automaticamente atualizado.
-        return this.angularFireAuth.auth.signInWithCredential(firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken));
-      });
-  }
-
   
+
+   signInWithFacebook(){
+    return this.facebook.login(['public_profile','email'])
+    .then((res: FacebookLoginResponse) =>{
+     return this.angularFireAuth.auth.signInCredential(firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken));
+    })
+   }
   logoutUser(): firebase.Promise<any> {
     return firebase.auth().signOut();
   }
